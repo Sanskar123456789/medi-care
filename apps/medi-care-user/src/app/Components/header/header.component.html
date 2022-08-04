@@ -1,0 +1,16 @@
+<p-toolbar>
+    <div class="p-toolbar-group-left">
+        <p-button label="Home" icon="pi pi-home" styleClass="p-button-success" routerLink="HomePage"></p-button>
+        <button pButton pRipple type="button" label="All Products" class="p-button-secondary p-button-text m-2" routerLink="Products"></button>
+        <!-- <p-button label="Upload" icon="pi pi-upload" styleClass="p-button-success"></p-button>
+            
+        <i class="pi pi-bars"></i> -->
+        
+    </div>
+    
+    <div class="p-toolbar-group-right">
+        <p-button icon="pi pi-user"  routerLink="User"></p-button>
+        <p-button icon="pi pi-shopping-cart" styleClass="p-button-danger m-2" routerLink="Cart"></p-button>
+        <p-button icon="pi pi-arrow-right" styleClass="p-button-info m-2" (click)="logout()"></p-button>
+    </div>
+</p-toolbar>

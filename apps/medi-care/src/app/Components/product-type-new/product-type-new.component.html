@@ -1,0 +1,22 @@
+
+<p-toast></p-toast>
+<button type="button" id="back" class="btn btn-dark btn-floating" (click)="back()">
+    <i class="fas fa-angle-left"></i>
+  </button>
+  <br>
+<div class="row">
+    <div class="card col-md-6" >
+        <div class="card-body">
+        <h5 class="card-title">New Product Type</h5>
+            <!-- Name input -->
+            <mdb-form-control>
+                <input mdbInput type="text" id="form1" class="form-control" [(ngModel)]="typeName" />
+                <label mdbLabel class="form-label" for="form1">Product Type</label>
+            </mdb-form-control>
+            <br>
+          <button type="submit" class="btn btn-primary btn-block mb-4" (click)="submit()">Submit</button>
+        <br>
+        <!-- <button type="button" class="btn btn-primary">Button</button> -->
+    </div>
+    </div>
+</div>

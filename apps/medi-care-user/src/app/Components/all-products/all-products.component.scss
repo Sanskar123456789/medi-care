@@ -1,0 +1,23 @@
+.scond{
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    .page{
+        padding:12px;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        width:max-content;
+        .container{
+            width: 100%;
+            margin: 0;
+            .cond{
+                display: flex;
+                justify-content: space-evenly;
+                .prods{
+                    margin: 12px;
+                }
+            }
+        }
+    }
+}

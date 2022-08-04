@@ -1,0 +1,27 @@
+<br>
+<span class="p-input-icon-left m-3">
+    <i class="pi pi-search"></i>
+    <input type="text" pInputText placeholder="Search" [(ngModel)]="searchString" (input)="search()" />
+</span>
+<br>
+<br>
+<div class="fcond" *ngIf="searchModel">
+    <div class="page" *ngFor="let product of CopyProds">
+        <div class="container" *ngIf="id.toString()===product.type?.type_id?.toString()">
+            <div class="cond" >
+                <medi-care-product-template class="prods" [product]="product"></medi-care-product-template>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="scond" *ngIf="!searchModel">
+    <div class="page" *ngFor="let product of CopyProds">
+        <div class="container">
+            <div class="cond" >
+                <medi-care-product-template class="prods" [product]="product"></medi-care-product-template>
+            </div>
+        </div>
+    </div>
+</div>
+

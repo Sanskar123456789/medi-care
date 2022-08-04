@@ -1,0 +1,76 @@
+<div class="container">
+    <p-card >
+            <p-divider align="left" type="dashed">
+                <div class="inline-flex align-items-center">
+                    <i class="pi pi-user mr-2"></i>
+                    <b>User Details</b>
+                </div>
+            </p-divider>
+        <div>
+            Name : {{User.name}}
+            <br>
+            Phone : {{User.phone_no}}
+            <br>
+            Email : {{User.email}}
+            <br>
+            Address : {{User.address}}
+        </div>
+
+        <p-divider align="left" type="dashed">
+            <div class="inline-flex align-items-center">
+                <i class="pi pi-tags mr-2"></i>
+                <b>Orders</b>
+            </div>
+        </p-divider>
+
+        <div>
+            
+            <p-table [value]="Orders" responsiveLayout="scroll">
+                <ng-template pTemplate="caption">
+                    <div class="p-d-flex p-ai-center p-jc-between">
+                        Orders
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Products</th>
+                        <th>Total</th>
+                        <th>Is Paid</th>                        
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-App>
+                    <tr>    
+                        <td>
+                            <div class="prods" *ngFor="let data of App.items">
+                                <img [src]= data.image_url [alt]="data.prod_name" width="50" height="50" class="p-shadow-4 m-2" />
+                                Prod Name : {{data.prod_name}}
+                                <br>
+                                Prod Price : {{data.price}}
+                            </div>
+
+                        </td>
+    
+                        <td>
+                            {{App.total_price}}
+                        </td>
+
+                        <td>
+                            <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger" *ngIf="!App.paid"></button>
+                            <button pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-success" *ngIf="App.paid"></button>
+                        </td>
+
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="summary">
+                    <div class="p-d-flex p-ai-center p-jc-between">
+                        In total there are {{Orders ? Orders.length : 0 }} Order(s).
+                    </div>
+                </ng-template>
+            </p-table>
+
+
+        </div>
+        
+    </p-card>
+</div>
+

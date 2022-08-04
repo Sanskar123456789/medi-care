@@ -5,7 +5,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/medi-care",
         "index": "apps/medi-care/src/index.html",
@@ -17,8 +19,12 @@
           "apps/medi-care/src/favicon.ico",
           "apps/medi-care/src/assets"
         ],
-        "styles": ["apps/medi-care/src/styles.scss"],
-        "scripts": []
+        "styles": [
+          "apps/medi-care/src/styles.scss"
+        ],
+        "scripts": [
+          "node_modules/chart.js/dist/chart.js"
+        ]
       },
       "configurations": {
         "production": {
@@ -82,7 +88,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/medi-care"],
+      "outputs": [
+        "coverage/apps/medi-care"
+      ],
       "options": {
         "jestConfig": "apps/medi-care/jest.config.ts",
         "passWithNoTests": true

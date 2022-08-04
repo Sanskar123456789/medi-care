@@ -1,0 +1,71 @@
+<p-toast></p-toast>
+<div class="row">
+    <button type="button" id="back" class="btn btn-dark btn-floating col-md-4 ms-3 mt-3" (click)="back()">
+        <i class="fas fa-angle-left"></i>
+      </button>
+    <br>
+    <div class="card col-md-4" >
+        <div class="card-body">
+        <h5 class="card-title">New Product</h5>
+
+        <div class="form" [formGroup]="forms">
+
+        
+            <!-- Name input -->
+
+            <mdb-form-control>
+                <input mdbInput type="text" formControlName="prod_name" id="form1" class="form-control"  />
+                <label mdbLabel class="form-label" for="form1">Product</label>
+            </mdb-form-control>
+            <br>
+
+            <div class="form-outline">
+                <input type="number" id="typeNumber" class="form-control" formControlName="price"/>
+                <label class="form-label" for="typeNumber" >Price</label>
+            </div>
+            <br>
+
+            <mdb-form-control>
+                <textarea mdbInput class="form-control" id="textAreaExample" rows="4" formControlName="description"></textarea>
+                <label mdbLabel class="form-label" for="textAreaExample">Description</label>
+            </mdb-form-control>
+            <br>
+
+            <label class="form-label" for="customFile" >Product Image</label>
+            <input type="file" class="form-control" id="customFile" (change)="onImgup($event)"/>
+            <div class="image" *ngIf="editmode">
+              <img [src]="img" alt="" style="width:150px;height: 150px; margin-top:5px;">
+            </div>
+            <br>
+
+            <div mdbDropdown class="dropdown">
+                <button
+                  class="btn btn-primary dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton"
+                  aria-expanded="false"
+                  mdbDropdownToggle>
+                  <div class="cond" *ngIf="editmode">
+                    {{typeName}}
+                  </div>
+                  <div class="cond" *ngIf="!editmode">
+                    Product Type
+                  </div>
+                  
+                </button>
+
+                <ul mdbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <div class="list" *ngFor="let l of Prod_type" >
+                    <div class="cond"*ngIf="l.type_id">
+                      <li><a class="dropdown-item" (click)="newType(l.type_id,l.type_name)">{{l.type_name}}</a></li>
+                    </div>
+                  </div>
+                </ul>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block mb-4 mt-3" (click)="submit()">Submit</button>
+          </div>
+        <br>
+        <!-- <button type="button" class="btn btn-primary">Button</button> -->
+    </div>
+    </div>
+</div>

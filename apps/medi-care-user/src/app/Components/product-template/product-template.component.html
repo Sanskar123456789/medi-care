@@ -1,0 +1,8 @@
+<div class="card">
+    <img [src]="product.image_url" alt="Fissure in Sandstone"/>
+    <div class="card-body">
+      <h5 class="card-title">{{product.prod_name}}</h5>
+      <p class="card-text">{{product.description}}</p>
+      <a class="btn btn-primary" (click)="addtoCart(product.prod_id)">Add to Cart</a>
+    </div>
+  </div>

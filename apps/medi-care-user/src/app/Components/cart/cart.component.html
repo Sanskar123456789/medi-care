@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="p-card">
+        <p-divider align="left" type="dashed">
+            <div class="inline-flex align-items-center">
+                <i class="pi pi-tags mr-2"></i>
+                <b>Orders</b>
+            </div>
+        </p-divider>
+            <br>
+            <div class="prods">
+                    <div class="orders">
+                        
+                        <p-table [value]="prods" responsiveLayout="scroll">
+                            <ng-template pTemplate="caption">
+                                <div class="p-d-flex p-ai-center p-jc-between">
+                                    Products
+                                </div>
+                            </ng-template>
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Image</th>
+                                    <th>Description</th>
+                                    <th>Price</th>
+                                    <th></th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-App>
+                                <tr>
+                                    <td>{{App.prod_name}}</td>
+                
+                                    <td><img [src]= App.image_url [alt]="App.prod_name" width="100" class="p-shadow-4" /></td>
+                
+                                    <td>
+                                        {{App.description}}
+                                    </td>
+
+                                    <td>
+                                        {{App.price}}
+                                    </td>
+
+                                    <td>
+                                        <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-text" (click)="removeCart(App.prod_id)"></button>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="summary">
+                                <div class="p-d-flex p-ai-center p-jc-between">
+                                    In total there are {{prods ? prods.length : 0 }} Product(s).
+                                    <br>
+                                    Your total amount is {{total_price}}
+                                </div>
+                            </ng-template>
+                        </p-table>
+
+                    </div>
+            </div>
+
+            <br>
+
+        <p-divider align="left" type="dashed">
+            <div class="inline-flex align-items-center">
+                <i class="pi pi-money-bill mr-2"></i>
+                <b>Payment</b>
+            </div>
+        </p-divider>
+
+        <div class="razorpay">
+            <p-button label="Place Order" id="rzp-button1" (click)="generateOnlineOrder()"></p-button>      
+        </div>
+    </div>
+</div>

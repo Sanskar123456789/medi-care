@@ -1,0 +1,22 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/lib/src",
+  "prefix": "medi-care",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/lib"],
+      "options": {
+        "jestConfig": "libs/lib/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/lib/**/*.ts", "libs/lib/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}

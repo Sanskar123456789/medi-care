@@ -1,0 +1,52 @@
+<p-toast></p-toast>
+<div class="container">
+    <button type="button" class="btn btn-primary" routerLink="Products-new" >New Product</button>
+    <br>
+    <br>
+    <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+          <tr>
+            <th>Product</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Type</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor="let data of prods">
+                <td>
+                  <div class="d-flex align-items-center">
+                    <img
+                        [src]="data.image_url"
+                        alt=""
+                        style="width: 45px; height: 45px"
+                        class="rounded-circle"
+                        />
+                    <div class="ms-3">
+                      <p class="fw-bold mb-1">{{data.prod_name}}</p>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <p class="fw-normal mb-1">{{data.description}}</p>
+                </td>
+                <td>
+                  <span class="badge badge-success rounded-pill d-inline">{{data.price}}</span>
+                </td>
+                <td>
+                  {{data.type?.type_name}}
+                </td>
+                <td *ngIf="data.prod_id">
+                  <button type="button" class="btn btn-link btn-sm btn-rounded" (click)="edit(data.prod_id)">
+                    Edit
+                  </button>
+                  <button type="button" class="btn btn-danger" (click)="deleteProd(data.prod_id)">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            
+        </tbody>
+      </table>
+</div>

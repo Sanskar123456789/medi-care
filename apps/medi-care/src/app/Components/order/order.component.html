@@ -1,0 +1,42 @@
+<table class="table align-middle mb-0 bg-white">
+    <thead class="bg-light">
+      <tr>
+        <th>Products</th>
+        <th>Price</th>
+        <th>Paid</th>
+        <th>User</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of orders">
+        <td>
+          <div class="d-flex align-items-center" *ngFor="let item of data.items">
+            <img
+                [src]="item.image_url"
+                [alt]="item.prod_name"
+                style="width: 45px; height: 45px"
+                class="rounded-circle"
+                />
+            <div class="ms-3">
+              <p class="fw-bold mb-1">{{item.prod_name}}</p>
+              <p class="text-muted mb-0">{{item.description}}</p>
+            </div>
+          </div>
+        </td>
+        <td>
+          <p class="fw-normal mb-1">{{data.total_price}}</p>
+        </td>
+        <td>
+          <span class="badge badge-success rounded-pill d-inline" *ngIf="data.paid">{{data.paid}}</span>
+          <span class="badge badge-warning rounded-pill d-inline" *ngIf="!data.paid">{{data.paid}}</span>
+        </td>
+
+        <div class="ms-3">
+          <p class="fw-bold mb-1">{{data.user_id?.name}}</p>
+          <p class="text-muted mb-0">{{data.user_id?.email}}</p>
+          <p class="text-muted mb-0">{{data.user_id?.phone_no}}</p>
+        </div>
+        
+      </tr>
+    </tbody>
+  </table>

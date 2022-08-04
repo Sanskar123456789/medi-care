@@ -1,0 +1,16 @@
+.fix{
+    display:flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top:50px;
+    justify-content: space-evenly;
+    .types{
+        width:30%;
+        .card{
+            margin: 32px;
+        }
+        // .card{
+        //     width:30%;
+        // }
+    }
+}

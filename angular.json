@@ -2,7 +2,10 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "lib": "libs/lib",
     "medi-care": "apps/medi-care",
-    "medi-care-e2e": "apps/medi-care-e2e"
+    "medi-care-e2e": "apps/medi-care-e2e",
+    "medi-care-user": "apps/medi-care-user",
+    "medi-care-user-e2e": "apps/medi-care-user-e2e"
   }
 }

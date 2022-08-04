@@ -1,0 +1,52 @@
+<p-toast></p-toast>
+<div class="container">
+  <div class="row" *ngIf="login">
+    <p-card header="Login">
+      <span class="p-float-label">
+        <input id="float-input" type="email" [(ngModel)]="email" pInputText> 
+        <label for="float-input">email</label>
+      </span>
+      <br>
+      <p-password [(ngModel)]="password" [toggleMask]="true"></p-password>
+      <br>
+      <br>
+      <button type="button" class="btn btn-primary" (click)="Login()">Submit</button>
+      &nbsp;&nbsp;&nbsp;
+      <button pButton pRipple type="button" icon="pi pi-user-plus" class="p-button-rounded p-button-info p-button-text" (click)="toggle()"></button>
+    </p-card>
+  </div>
+  <div class="newUser" *ngIf="!login">
+    <p-card header="New User" >
+      <div  [formGroup]="forms">
+
+        <span class="p-float-label">
+          <input id="float-input" type="text" formControlName="name" pInputText> 
+          <label for="float-input">Name</label>
+        </span>
+        <br>
+        <span class="p-float-label">
+          <input id="float-input" type="number" formControlName="phone_no" pInputText> 
+          <label for="float-input">Phone Number</label>
+        </span>
+        <br>
+        <span class="p-float-label">
+          <input id="float-input" type="email" formControlName="email" pInputText> 
+          <label for="float-input">email</label>
+        </span>
+        <br>
+        <span class="p-float-label">
+          <textarea id="float-input" rows="5" cols="30" pInputTextarea [autoResize]="true" formControlName="Address"></textarea>
+          <label for="float-input">Address</label>
+        </span>
+  
+        <h6>Password</h6>
+        <p-password [(ngModel)]="password" [toggleMask]="true" formControlName="password"></p-password>
+        <br>
+        <br>
+        <button type="button" class="btn btn-primary" (click)="newUser()">Submit</button>
+        &nbsp;&nbsp;&nbsp;
+        <button pButton pRipple type="button" icon="pi pi-user" class="p-button-rounded p-button-info p-button-text" (click)="toggle()"></button>
+      </div>
+    </p-card>
+  </div>
+</div>

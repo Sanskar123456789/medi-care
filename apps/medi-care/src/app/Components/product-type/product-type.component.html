@@ -1,0 +1,49 @@
+<p-toast></p-toast>
+<div class="container">
+    <button type="button" class="btn btn-primary" routerLink="ProductsType-new">New Product</button>
+    <br>
+    <br>
+    <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+          <tr>
+            <th>Id</th> 
+            <th>Product Type</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of Prod_type">
+            <td>
+              {{ data.type_id}}
+            </td>
+            <td>
+              {{ data.type_name}}
+            </td>
+            <td>
+              <div class="cond" *ngIf="data.type_id">
+
+                <button
+                type="button"
+                class="btn btn-link btn-rounded btn-sm fw-bold"
+                data-mdb-ripple-color="dark"
+                (click)="edit(data.type_id)"
+                >
+                Edit
+              </button>
+            </div>
+              <div class="cond" *ngIf="data.type_id">
+                <button
+                        type="button"
+                        class="btn  btn-rounded btn-sm  btn-danger"
+                        (click)="delete(data.type_id)"
+                        >
+                  Delete
+                </button>
+              </div>
+            </td>
+
+          </tr>
+         
+        </tbody>
+      </table>
+</div>
